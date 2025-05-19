@@ -69,7 +69,7 @@
 
 
     <!-- Best Food Items Section   S T A R T -->
-    {{--    <section class="best-food-items-section fix section-padding bg-color2">
+    <section class="best-food-items-section fix section-padding bg-color2">
         <div class="best-food-wrapper">
             <div class="shape1 float-bob-y d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png"
                     alt="shape"></div>
@@ -159,7 +159,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 
     <!-- Offer Section   S T A R T -->

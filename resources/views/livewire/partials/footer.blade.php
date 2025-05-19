@@ -43,7 +43,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <a href="index.php">
+                                <a href="{{ route('home') }}">
                                     <img src="assets/img/logo/logoWhite.svg" alt="logo-img">
                                 </a>
                             </div>
@@ -174,7 +174,7 @@
             <div class="container">
                 <div class="footer-wrapper d-flex align-items-center justify-content-between">
                     <p class="wow fadeInLeft" data-wow-delay=".3s">
-                        © All Copyright 2025 by <a href="index.php">FreshEat</a>
+                        © All Copyright 2025 by <a href="{{ route('home') }}">FreshEat</a>
                     </p>
                     <ul class="brand-logo wow fadeInRight" data-wow-delay=".5s">
                         <li>

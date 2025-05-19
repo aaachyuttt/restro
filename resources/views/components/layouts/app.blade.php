@@ -11,6 +11,11 @@
 </head>
 
 <body class="bg-color2">
+    @livewire('partials.preloader')
+    @livewire('partials.scroll-up')
+    @livewire('partials.mouse-cursor')
+    @livewire('partials.sidebar')
+    @livewire('partials.search')
     @livewire('partials.navbar')
     {{ $slot }}
     @livewire('partials.footer')

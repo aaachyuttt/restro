@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="main-header-wrapper">
                 <div class="logo-image">
-                    <a href="index.php">
+                    <a href="{{ route('home') }}">
                         <img src="assets/img/logo/logo.svg" alt="img">
                     </a>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="mega-menu-wrapper">
                             <div class="header-main">
                                 <div class="logo">
-                                    <a href="index.php" class="header-logo">
+                                    <a href="{{ route('home') }}" class="header-logo">
                                         <img src="assets/img/logo/logo.svg" alt="logo-img">
                                     </a>
                                 </div>
@@ -34,7 +34,7 @@
                                             <nav id="mobile-menu">
                                                 <ul>
                                                     <li class="has-dropdown active menu-thumb">
-                                                        <a href="index.php">
+                                                        <a href="{{ route('home') }}">
                                                             Home
                                                         </a>
                                                     </li>
