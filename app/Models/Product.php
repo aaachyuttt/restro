@@ -13,8 +13,13 @@ class Product extends Model
         'price',
         'stock',
         'category_id',
-        'image',
-        'is_active'
+        'images',
+        'is_active',
+        'is_featured',
+        'on_sale',
+        'is_popular',
+        'is_bestselling',
+        'in_stock',
     ];
     protected $casts = [
         'images' => 'array',

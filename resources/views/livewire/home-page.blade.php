@@ -88,70 +88,32 @@
                 <div class="slider-area mb-n40">
                     <div class="swiper bestFoodItems-slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="single-food-items">
-                                    <div class="item-thumb">
-                                        <img src="assets/img/food-items/item1_1.png" alt="thumb">
-                                        <div class="circle-shape"><img class="cir36"
-                                                src="assets/img/food-items/circleShape.png" alt="shape"></div>
-                                    </div>
-                                    <div class="item-content">
-                                        <a href="menu.php">
-                                            <h3>Chicken Pizza</h3>
-                                        </a>
-                                        <div class="text">The registration fee</div>
-                                        <h6>$26.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-food-items">
-                                    <div class="item-thumb">
-                                        <img src="assets/img/food-items/item1_2.png" alt="thumb">
-                                        <div class="circle-shape"><img class="cir36"
-                                                src="assets/img/food-items/circleShape.png" alt="shape"></div>
-                                    </div>
-                                    <div class="item-content">
-                                        <a href="menu.php">
-                                            <h3>Egg and Cucumber</h3>
-                                        </a>
-                                        <div class="text">The registration fee</div>
-                                        <h6>$28.00</h6>
+                            @foreach ($popularProducts as $product)
+                                <div class="swiper-slide">
+                                    <div class="single-food-items">
+                                        <div class="item-thumb">
+                                            @php
+                                                $defaultImage = asset('assets/img/food-items/item1_1.png');
+                                                $imagePath =
+                                                    !empty($product->images) && isset($product->images[0])
+                                                        ? url('storage', $product->images[0])
+                                                        : $defaultImage;
+                                            @endphp
+
+                                            <img src="{{ $imagePath }}" alt="thumb">
+                                            <div class="circle-shape"><img class="cir36"
+                                                    src="assets/img/food-items/circleShape.png" alt="shape"></div>
+                                        </div>
+                                        <div class="item-content">
+                                            <a href="menu.php">
+                                                <h3>{{ $product->name }}</h3>
+                                            </a>
+                                            <div class="text">The registration fee</div>
+                                            <h6>£{{ $product->price }}</h6>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-food-items">
-                                    <div class="item-thumb">
-                                        <img src="assets/img/food-items/item1_3.png" alt="thumb">
-                                        <div class="circle-shape"><img class="cir36"
-                                                src="assets/img/food-items/circleShape.png" alt="shape"></div>
-                                    </div>
-                                    <div class="item-content">
-                                        <a href="menu.php">
-                                            <h3>Chicken Fried Rice</h3>
-                                        </a>
-                                        <div class="text">The registration fee</div>
-                                        <h6>$100.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-food-items">
-                                    <div class="item-thumb">
-                                        <img src="assets/img/food-items/item1_4.png" alt="thumb">
-                                        <div class="circle-shape"><img class="cir36"
-                                                src="assets/img/food-items/circleShape.png" alt="shape"></div>
-                                    </div>
-                                    <div class="item-content">
-                                        <a href="menu.php">
-                                            <h3>Chicken Leg Piece</h3>
-                                        </a>
-                                        <div class="text">The registration fee</div>
-                                        <h6>$20.99</h6>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -188,43 +150,6 @@
                             </div>
                         </div>
                     @endforeach
-
-                    {{-- <div class="col-lg-6 col-xl-4">
-                        <div class="offer-card style1 wow fadeInUp" data-wow-delay="0.5s"
-                            style="background-image: url(assets/img/bg/offerBG1_1.jpg);">
-                            <div class="offer-content">
-                                <h6>WELCOME FRESHEAT</h6>
-                                <h3>TODAY SPACIAL FOOD</h3>
-                                <p>limits Time Offer</p>
-                                <a href="menu.php" class="theme-btn style5">
-                                    ORDER NOW <i class="fa-sharp fa-regular fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="offer-thumb">
-                                <img class="thumbImg" src="assets/img/offer/offerThumb1_2.png" alt="thumb">
-                                <div class="shape float-bob-x"><img src="assets/img/shape/offerShape1_4.png"
-                                        alt="shape"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="offer-card style1  wow fadeInUp" data-wow-delay="0.7s"
-                            style="background-image: url(assets/img/bg/offerBG1_1.jpg);">
-                            <div class="offer-content">
-                                <h6>ON THIS WEEK</h6>
-                                <h3>SPECIAL CHICKEN ROLL</h3>
-                                <p>limits Time Offer</p>
-                                <a href="menu.php" class="theme-btn style4">
-                                    ORDER NOW <i class="fa-sharp fa-regular fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="offer-thumb">
-                                <img class="thumbImg" src="assets/img/offer/offerThumb1_3.png" alt="thumb">
-                                <div class="shape float-bob-x"><img src="assets/img/shape/offerShape1_4.png"
-                                        alt="shape"></div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -272,7 +197,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
@@ -295,100 +220,39 @@
                     </h2>
                 </div>
                 <div class="dishes-card-wrap style1">
-                    <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="dishes-thumb">
-                            <img src="assets/img/dishes/dishes1_1.png" alt="thmb">
+                    @foreach ($bestSellings as $bestSelling)
+                        <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="dishes-thumb">
+                                @php
+                                    $defaultImage = asset('assets/img/food-items/item1_1.png');
+                                    $imagePath =
+                                        !empty($bestSelling->images) && isset($bestSelling->images[0])
+                                            ? url('storage', $bestSelling->images[0])
+                                            : $defaultImage;
+                                @endphp
+                                <img src="{{ $imagePath }}" alt="thmb">
+                            </div>
+                            <a href="#">
+                                <h3>{{ $bestSelling->name }}</h3>
+                            </a>
+                            <p>The registration fee</p>
+                            <h6>£{{ $bestSelling->price }}</h6>
+                            <div class="social-profile">
+                                <span class="plus-btn"> <a href="#"> <i
+                                            class="fa-regular fa-heart"></i></a></span>
+                                <ul>
+                                    <li><a href="#"><i class="fa-regular fa-basket-shopping-simple"></i></a>
+                                    </li>
+                                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                                class="fa-light fa-eye"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <a href="menu.php">
-                            <h3>Chicken Fried Rice</h3>
-                        </a>
-                        <p>The registration fee</p>
-                        <h6>$100.99</h6>
-                        <div class="social-profile">
-                            <span class="plus-btn"> <a href="#"> <i class="fa-regular fa-heart"></i></a></span>
-                            <ul>
-                                <li><a href="cart.php"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                            class="fa-light fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="social-profile">
-                            <span class="plus-btn"> <a href="#"> <i class="fa-regular fa-heart"></i></a></span>
-                            <ul>
-                                <li><a href="cart.php"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                            class="fa-light fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="dishes-thumb">
-                            <img src="assets/img/dishes/dishes1_2.png" alt="thmb">
-                        </div>
-                        <a href="menu.php">
-                            <h3>Chinese Pasta</h3>
-                        </a>
-                        <p>The registration fee</p>
-                        <h6>$15.99</h6>
-                    </div>
-                    <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="social-profile">
-                            <span class="plus-btn"> <a href="#"> <i class="fa-regular fa-heart"></i></a></span>
-                            <ul>
-                                <li><a href="cart.php"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                            class="fa-light fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="dishes-thumb">
-                            <img src="assets/img/dishes/dishes1_3.png" alt="thmb">
-                        </div>
-                        <a href="menu.php">
-                            <h3>Chicken Pizza</h3>
-                        </a>
-                        <p>The registration fee</p>
-                        <h6>$26.99</h6>
-                    </div>
-                    <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="social-profile">
-                            <span class="plus-btn"> <a href="#"> <i class="fa-regular fa-heart"></i></a></span>
-                            <ul>
-                                <li><a href="cart.php"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                            class="fa-light fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="dishes-thumb">
-                            <img src="assets/img/dishes/dishes1_4.png" alt="thmb">
-                        </div>
-                        <a href="menu.php">
-                            <h3>Chicken Noodles</h3>
-                        </a>
-                        <p>The registration fee</p>
-                        <h6>$39.00</h6>
-                    </div>
-                    <div class="dishes-card style1 wow fadeInUp" data-wow-delay="0.9s">
-                        <div class="social-profile">
-                            <span class="plus-btn"> <a href="wishlist.php"> <i
-                                        class="fa-regular fa-heart"></i></a></span>
-                            <ul>
-                                <li><a href="cart.php"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                            class="fa-light fa-eye"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="dishes-thumb">
-                            <img src="assets/img/dishes/dishes1_5.png" alt="thmb">
-                        </div>
-                        <a href="menu.php">
-                            <h3>Grilled Chicken</h3>
-                        </a>
-                        <p>The registration fee</p>
-                        <h6>$20.99</h6>
-                    </div>
+                    @endforeach
+
                 </div>
                 <div class="btn-wrapper  wow fadeInUp" data-wow-delay="0.9s">
-                    <a class="theme-btn" href="menu2.php">VIEW ALL ITEM <i
+                    <a class="theme-btn" href="#">VIEW ALL ITEM <i
                             class="fa-sharp fa-regular fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -484,7 +348,7 @@
             </div>
         </div>
 
-    </section> --}}
+    </section>
 
 
 

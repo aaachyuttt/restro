@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? env('APP_NAME') }}</title>
+    <style>
+        .dishes-card.style1:hover {
+            background-image: url("{{ asset('assets/img/bg/dishesThumbBG.png') }}") !important;
+            /* Default */
+        }
+    </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
