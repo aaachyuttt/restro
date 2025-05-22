@@ -5,18 +5,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcumb-content">
-                            <?php if (!empty($mainTitle)) : ?>
-                            <h1 class="breadcumb-title"><?php echo $mainTitle; ?></h1>
-                            <?php endif; ?>
-                            <ul class="breadcumb-menu">
-                                <?php if (!empty($Title)) : ?>
-                                <li><a href="{{ route('home') }}"><?php echo $Title; ?></a></li>
-                                <?php endif; ?>
-                                <li class="text-white">/</li>
-                                <?php if (!empty($Title2)) : ?>
-                                <li class="active"><?php echo $Title2; ?></li>
-                                <?php endif; ?>
-                            </ul>
+                            @isset($pageTitle)
+                                <h1 class="breadcumb-title">{{ $pageTitle }}</h1>
+
+                                <ul class="breadcumb-menu">
+                                    <li><a href="{{ route('home') }}">Home</a></li>
+                                    <li class="text-white">/</li>
+                                    <li class="active">{{ $pageTitle }}</li>
+                                </ul>
+                            @endisset
                         </div>
                     </div>
                 </div>

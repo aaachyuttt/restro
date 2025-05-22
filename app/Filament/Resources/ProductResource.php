@@ -49,8 +49,8 @@ class ProductResource extends Resource
                             ->disabled()
                             ->dehydrated()
                             ->maxLength(255),
-                        TextInput::make('short_description')
-                            ->required(),
+                        // TextInput::make('short_description')
+                        //     ->required(),
                         MarkdownEditor::make('description')
                             ->columnSpanFull()
                             ->fileAttachmentsDirectory('products')
@@ -60,7 +60,8 @@ class ProductResource extends Resource
                             ->multiple()
                             ->directory('products')
                             ->maxFiles(5)
-                            ->reorderable(),
+                            ->reorderable()
+                            ->preserveFilenames(),
                     ])
                 ])->columnSpan(2),
                 Group::make()->schema([

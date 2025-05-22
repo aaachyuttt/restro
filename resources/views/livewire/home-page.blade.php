@@ -252,7 +252,7 @@
 
                 </div>
                 <div class="btn-wrapper  wow fadeInUp" data-wow-delay="0.9s">
-                    <a class="theme-btn" href="#">VIEW ALL ITEM <i
+                    <a class="theme-btn" href="{{ route('menu') }}">VIEW ALL ITEM <i
                             class="fa-sharp fa-regular fa-arrow-right"></i></a>
                 </div>
             </div>

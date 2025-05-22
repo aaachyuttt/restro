@@ -39,12 +39,12 @@
                                                         </a>
                                                     </li>
                                                     <li class="has-dropdown">
-                                                        <a href="about.php">
+                                                        <a href="{{ url('about') }}">
                                                             About Us
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="shop.php">
+                                                        <a href="{{ route('menu') }}">
                                                             Menu
                                                         </a>
                                                     </li>
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="header-right d-flex justify-content-end align-items-center">
+                                {{--  <div class="header-right d-flex justify-content-end align-items-center">
                                     <a href="#0" class="search-trigger search-icon"><i
                                             class="fal fa-search"></i></a>
                                     <div class="header__cart">
@@ -142,7 +142,7 @@
                                             <i class="fas fa-bars"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

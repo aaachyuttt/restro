@@ -3,21 +3,21 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\Page;
 use Filament\Tables;
 use Filament\Forms\Set;
-use App\Models\Category;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\CategoryResource\Pages;
+use App\Filament\Resources\PageResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\CategoryResource\RelationManagers;
+use App\Filament\Resources\PageResource\RelationManagers;
 
-class CategoryResource extends Resource
+class PageResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,20 +25,31 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('title')
                     ->required()
-                    ->maxLength(255)
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->dehydrated()
-                    ->unique(Category::class, 'slug', ignoreRecord: true)
+                    ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null)
                     ->maxLength(255),
+                Forms\Components\TextInput::make('slug')
+                    ->unique(Page::class, 'slug', ignoreRecord: true)
+                    ->required()
+                    ->disabled()
+                    ->dehydrated()
+                    ->maxLength(255),
+                Forms\Components\MarkdownEditor::make('content')
+                    ->required()
+                    ->columnSpanFull()
+                    ->fileAttachmentsDirectory('pages'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('categories')
+                    ->directory('pages')
                     ->preserveFilenames(),
+                Forms\Components\Textarea::make('meta_title')
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('meta_description')
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('meta_keywords')
+                    ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_active')
                     ->required()
                     ->default(true),
@@ -49,7 +60,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
@@ -88,9 +99,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListPages::route('/'),
+            'create' => Pages\CreatePage::route('/create'),
+            'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
     }
 }

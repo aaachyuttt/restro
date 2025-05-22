@@ -11,6 +11,10 @@
             background-image: url("{{ asset('assets/img/bg/dishesThumbBG.png') }}") !important;
             /* Default */
         }
+
+        .timer-wrap.style1 {
+            background-image: url("{{ asset('assets/img/bg/timerBg.png') }}") !important;
+        }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles

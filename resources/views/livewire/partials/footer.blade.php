@@ -69,31 +69,31 @@
                             </div>
                             <ul class="list-area">
                                 <li>
-                                    <a href="about.php">
+                                    <a href="{{ url('about') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="gallery.php">
+                                    <a href="#">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         Our Gallery
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="blog.php">
+                                    <a href="#">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         Our Blogs
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="faq.php">
+                                    <a href="#">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         FAQ’S
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.php">
+                                    <a href="#">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         Contact Us
                                     </a>
@@ -108,7 +108,7 @@
                             </div>
                             <ul class="list-area">
                                 <li>
-                                    <a href="menu.php">
+                                    <a href="{{ route('menu') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         Burger King
                                     </a>
@@ -147,10 +147,10 @@
                             </div>
                             <ul class="list-area">
                                 <li class="mb-2">
-                                    Monday – Friday: <span class="text-theme-color2"> 8am – 4pm </span>
+                                    Monday – Friday: <span class="text-theme-color2"> 11am – 11pm </span>
                                 </li>
                                 <li>
-                                    Saturday: <span class="text-theme-color2"> 8am – 12am </span>
+                                    Saturday: <span class="text-theme-color2"> 11am – 11am </span>
                                 </li>
                             </ul>
                             <form action="#" class="mt-4">
@@ -161,7 +161,8 @@
                                 </div>
                                 <div class="form-control style2 mt-3">
                                     <input id="checkbox" name="checkbox" type="checkbox">
-                                    <label for="checkbox">I agree to the <a href="contact.php">Privacy Policy.
+                                    <label for="checkbox">I agree to the <a href="{{ url('privacy-policy') }}">Privacy
+                                            Policy.
                                         </a></label>
                                 </div>
                             </form>
@@ -178,12 +179,12 @@
                     </p>
                     <ul class="brand-logo wow fadeInRight" data-wow-delay=".5s">
                         <li>
-                            <a class="text-white" href="contact.php">
+                            <a class="text-white" href="{{ url('terms-and-conditions') }}">
                                 Terms & Condition
                             </a>
                         </li>
                         <li>
-                            <a class="text-white" href="contact.php">
+                            <a class="text-white" href="{{ url('privacy-policy') }}">
                                 Privacy Policy
                             </a>
                         </li>
