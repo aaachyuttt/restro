@@ -14,7 +14,7 @@
                                 <div class="item1"><i class="fa-solid fa-location-dot"></i></div>
                                 <div class="item2">
                                     <h6>address</h6>
-                                    <p>4648 Rocky Road Philadelphia </p>
+                                    <p>{{ $address }}</p>
                                 </div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                                 <div class="item1"><i class="fa-solid fa-envelope"></i></div>
                                 <div class="item2">
                                     <h6>send email</h6>
-                                    <p>info@exmple.com</p>
+                                    <p>{{ $email }}</p>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <div class="item1"><i class="fa-regular fa-phone-volume"></i></div>
                                 <div class="item2">
                                     <h6>call emergency</h6>
-                                    <p>+88 0123 654 99</p>
+                                    <p>{{ $phone }}</p>
                                 </div>
                             </div>
                         </div>
@@ -49,15 +49,18 @@
                             </div>
                             <div class="footer-content">
                                 <p>
-                                    Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia
-                                    curabitur
-                                    lacinia mollis
+                                    {{ $about }}
                                 </p>
                                 <div class="social-icon d-flex align-items-center">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    {!! isset($socialMedia['facebook'])
+                                        ? '<a href="' . $socialMedia['facebook'] . '"><i class="fab fa-facebook-f"></i></a>'
+                                        : '' !!}
+                                    {!! isset($socialMedia['instagram'])
+                                        ? '<a href="' . $socialMedia['instagram'] . '"><i class="fab fa-instagram"></i></a>'
+                                        : '' !!}
+                                    {!! isset($socialMedia['youtube'])
+                                        ? '<a href="' . $socialMedia['youtube'] . '"><i class="fab fa-youtube"></i></a>'
+                                        : '' !!}
                                 </div>
                             </div>
                         </div>
@@ -145,14 +148,17 @@
                             <div class="widget-head">
                                 <h3>Contact Us</h3>
                             </div>
-                            <ul class="list-area">
+                            <p>We are open:</p>
+                            <p>{{ $openingTime }}</p>
+                            {{-- <p>Monday – Friday: 11am – 11pm</p>
+                             <ul class="list-area">
                                 <li class="mb-2">
                                     Monday – Friday: <span class="text-theme-color2"> 11am – 11pm </span>
                                 </li>
                                 <li>
                                     Saturday: <span class="text-theme-color2"> 11am – 11am </span>
                                 </li>
-                            </ul>
+                            </ul> --}}
                             <form action="#" class="mt-4">
                                 <div class="form-control">
                                     <input class="email" type="email" placeholder="Your email address">

@@ -11,13 +11,18 @@
                 </div>
                 <div class="main-header-items">
                     <div class="header-top-wrapper">
-                        <span><i class="fa-regular fa-clock"></i> 11:00 am - 11:00 pm</span>
+                        <span><i class="fa-regular fa-clock"></i> {{ $openingTime }}</span>
                         <div class="social-icon d-flex align-items-center">
                             <span>Follow Us:</span>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            {!! isset($socialMedia['facebook'])
+                                ? '<a href="' . $socialMedia['facebook'] . '"><i class="fab fa-facebook-f"></i></a>'
+                                : '' !!}
+                            {!! isset($socialMedia['instagram'])
+                                ? '<a href="' . $socialMedia['instagram'] . '"><i class="fab fa-instagram"></i></a>'
+                                : '' !!}
+                            {!! isset($socialMedia['youtube'])
+                                ? '<a href="' . $socialMedia['youtube'] . '"><i class="fab fa-youtube"></i></a>'
+                                : '' !!}
                         </div>
                     </div>
                     <div id="header-sticky" class="header-1">
