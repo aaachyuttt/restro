@@ -1,5 +1,6 @@
 <div>
     <!-- Food Menu section  S T A R T -->
+    {{--
     <section class="food-menu-section fix section-padding" id="menu">
         <div class="burger-shape">
             <img src="assets/img/shape/burger-shape.png" alt="img">
@@ -98,5 +99,108 @@
                 </ul>
             </div>
         </div>
+    </section> --}}
+
+    <section class="food-menu-section fix section-padding" id="menu">
+        <div class="burger-shape">
+            <img src="assets/img/shape/burger-shape.png" alt="img">
+        </div>
+        <div class="fry-shape">
+            <img src="assets/img/shape/fry-shape.png" alt="img">
+        </div>
+
+
+        <div class="food-menu-wrapper style1">
+            <div class="container">
+                <div class="food-menu-tab-wrapper style-bg">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title-area text-center mb-5">
+                                <div class="sub-title">
+                                    <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon">FOOD MENU
+                                    <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
+                                </div>
+                                <h2 class="title">{{ env('APP_NAME') }} Foods Menu</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Sidebar for category navigation -->
+                        <aside class="col-md-3 d-none d-md-block sticky-top border p-3 rounded shadow-sm"
+                            style=" z-index: auto; height: 50vh;">
+                            <ul class="nav flex-column ">
+                                @foreach ($categories as $category)
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark fw-semibold" href="#category-{{ $category->id }}">
+                                            <img src="{{ url('storage', $category->image) }}" height="24"
+                                                class="me-2" alt="icon">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </aside>
+
+                        <!-- Main content with all food items grouped by category -->
+                        <div class="col-md-9 col-12">
+                            @foreach ($categories as $category)
+                                <section id="category-{{ $category->id }}" class="mb-5 pt-3">
+                                    <h3 class="border-bottom pb-2">{{ $category->name }}</h3>
+                                    <div class="row g-4">
+                                        @forelse ($category->products as $product)
+                                            <div class="col-12">
+                                                <div class="d-flex align-items-start gap-3 pt-3">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="{{ url('storage', $product->images[0]) }}"
+                                                            alt="{{ $product->name }}" class="rounded-circle"
+                                                            style="width: 80px; height: 80px; object-fit: cover;">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="d-flex justify-content-between align-items-start">
+                                                            <h5 class="fw-bold mb-1">{{ $product->name }}</h5>
+                                                            <span
+                                                                class="text-danger fw-bold">${{ number_format($product->price, 2) }}</span>
+                                                        </div>
+                                                        <p class="text-muted mb-0 small">
+                                                            {{ Str::limit($product->description, 60, '...') ?? 'No description available.' }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <div class="col-12">
+                                                <p>No items in this category.</p>
+                                            </div>
+                                        @endforelse
+
+                                    </div>
+                                </section>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Marquee Section -->
+        <div class="marquee-wrapper style-1 text-slider section-padding pt-0 mt-5">
+            <div class="marquee-inner to-left">
+                <ul class="marqee-list d-flex">
+                    <li class="marquee-item style1">
+                        <span class="text-slider text-style">Chicken Pizza</span>
+                        <span class="text-slider text-style">Grilled Chicken</span>
+                        <span class="text-slider text-style">Burger</span>
+                        <span class="text-slider text-style">Fresh Pasta</span>
+                        <span class="text-slider text-style">Italiano French Fry</span>
+                        <span class="text-slider text-style">Chicken Fry</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
+
+
+
 </div>

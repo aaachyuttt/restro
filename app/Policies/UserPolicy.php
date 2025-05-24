@@ -49,9 +49,12 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @return bool
      */
-    public function update(User $user): bool
+    public function update(User $authUser, User $targetUser): bool
     {
-        return $user->can('update_user');
+        if ($targetUser->id === 1) {
+            return false;
+        }
+        return $authUser->can('update_user');
     }
 
     /**
@@ -60,9 +63,15 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @return bool
      */
-    public function delete(User $user): bool
+    public function delete(User $authUser, User $targetUser): bool
     {
-        return $user->can('delete_user');
+        // Disallow deletion of the first user
+        if ($targetUser->id === 1) {
+            return false;
+        }
+
+        // Fallback to permission check
+        return $authUser->can('delete_user');
     }
 
     /**

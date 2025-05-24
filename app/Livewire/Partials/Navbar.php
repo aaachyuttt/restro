@@ -7,6 +7,7 @@ use App\Models\WebsiteSetting;
 
 class Navbar extends Component
 {
+    public $logo1;
     public $openingTime;
     public $socialMedia = [
         'facebook' => '',
@@ -16,10 +17,19 @@ class Navbar extends Component
     ];
     public function mount()
     {
-        $this->openingTime = WebsiteSetting::where('name', 'opening_time')->first()->content;
-        $this->socialMedia['facebook'] = WebsiteSetting::where('name', 'facebook')->first()->content;
-        $this->socialMedia['instagram'] = WebsiteSetting::where('name', 'instagram')->first()->content;
-        $this->socialMedia['youtube'] = WebsiteSetting::where('name', 'youtube')->first()->content;
+        $settings = WebsiteSetting::whereIn('name', [
+            'opening_time',
+            'facebook',
+            'instagram',
+            'youtube'
+        ])->pluck('content', 'name');
+
+        $this->openingTime = $settings['opening_time'] ?? null;
+        $this->socialMedia = [
+            'facebook' => $settings['facebook'] ?? null,
+            'instagram' => $settings['instagram'] ?? null,
+            'youtube' => $settings['youtube'] ?? null,
+        ];
     }
     public function render()
     {
