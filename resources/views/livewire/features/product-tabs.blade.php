@@ -132,6 +132,7 @@
                                 @foreach ($categories as $category)
                                     <li class="nav-item">
                                         <a class="nav-link text-dark fw-semibold" href="#category-{{ $category->id }}">
+
                                             <img src="{{ url('storage', $category->image) }}" height="24"
                                                 class="me-2" alt="icon">
                                             {{ $category->name }}
@@ -151,9 +152,11 @@
                                             <div class="col-12">
                                                 <div class="d-flex align-items-start gap-3 pt-3">
                                                     <div class="flex-shrink-0">
-                                                        <img src="{{ url('storage', $product->images[0]) }}"
-                                                            alt="{{ $product->name }}" class="rounded-circle"
-                                                            style="width: 80px; height: 80px; object-fit: cover;">
+                                                        @if (!empty($product->images))
+                                                            <img src="{{ url('storage', $product->images[0]) }}"
+                                                                alt="{{ $product->name }}" class="rounded-circle"
+                                                                style="width: 80px; height: 80px; object-fit: cover;">
+                                                        @endif
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <div class="d-flex justify-content-between align-items-start">

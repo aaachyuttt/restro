@@ -1,5 +1,5 @@
 <div>
-    @livewire('partials.pageheader', ['pageTitle' => $pageTitle])
+    @livewire('partials.page-header', ['pageTitle' => $pageTitle])
     @php
         use League\CommonMark\CommonMarkConverter;
 
