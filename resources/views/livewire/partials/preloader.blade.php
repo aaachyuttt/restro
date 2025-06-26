@@ -11,24 +11,24 @@
                 <span data-text-preloader="R" class="letters-loading">
                     R
                 </span>
-                <span data-text-preloader="E" class="letters-loading">
+                <spnpan data-text-preloader="E" class="letters-loading">
                     E
-                </span>
-                <span data-text-preloader="S" class="letters-loading">
-                    S
-                </span>
-                <span data-text-preloader="H" class="letters-loading">
-                    H
-                </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
-                </span>
-                <span data-text-preloader="A" class="letters-loading">
-                    A
-                </span>
-                <span data-text-preloader="T" class="letters-loading">
-                    T
-                </span>
+                    </span>
+                    <span data-text-preloader="S" class="letters-loading">
+                        S
+                    </span>
+                    <span data-text-preloader="H" class="letters-loading">
+                        H
+                    </span>
+                    <span data-text-preloader="E" class="letters-loading">
+                        E
+                    </span>
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+                    <span data-text-preloader="T" class="letters-loading">
+                        T
+                    </span>
             </div>
             <p class="text-center">Loading</p>
         </div>

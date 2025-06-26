@@ -11,17 +11,17 @@
                 </div>
                 <div class="main-header-items">
                     <div class="header-top-wrapper">
-                        <span><i class="fa-regular fa-clock"></i> {{ $openingTime }}</span>
+                        <span><i class="fa-regular fa-clock"></i> {{ $opening_time }}</span>
                         <div class="social-icon d-flex align-items-center">
                             <span>Follow Us:</span>
-                            {!! isset($socialMedia['facebook'])
-                                ? '<a href="' . $socialMedia['facebook'] . '"><i class="fab fa-facebook-f"></i></a>'
+                            {!! isset($social_media['facebook'])
+                                ? '<a href="' . $social_media['facebook'] . '"><i class="fab fa-facebook-f"></i></a>'
                                 : '' !!}
-                            {!! isset($socialMedia['instagram'])
-                                ? '<a href="' . $socialMedia['instagram'] . '"><i class="fab fa-instagram"></i></a>'
+                            {!! isset($social_media['instagram'])
+                                ? '<a href="' . $social_media['instagram'] . '"><i class="fab fa-instagram"></i></a>'
                                 : '' !!}
-                            {!! isset($socialMedia['youtube'])
-                                ? '<a href="' . $socialMedia['youtube'] . '"><i class="fab fa-youtube"></i></a>'
+                            {!! isset($social_media['youtube'])
+                                ? '<a href="' . $social_media['youtube'] . '"><i class="fab fa-youtube"></i></a>'
                                 : '' !!}
                         </div>
                     </div>
@@ -63,11 +63,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{--  <div class="header-right d-flex justify-content-end align-items-center">
-                                    <a href="#0" class="search-trigger search-icon"><i
-                                            class="fal fa-search"></i></a>
+                                <div class="header-right d-flex justify-content-end align-items-center">
+                                    {{-- <a href="#0" class="search-trigger search-icon"><i
+                                            class="fal fa-search"></i></a> --}}
                                     <div class="header__cart">
-                                        <a href="#"> <i class="fa-sharp fa-regular fa-cart-shopping"></i> </a>
+                                        <a href="#"> <i class="fa-sharp fa-regular fa-cart-shopping"></i>
+                                            <span
+                                                style="font-size: 10px;font-weight: 500;line-height: 15px;position: absolute;top: 0;right: -10px;width: 15px;height: 15px; padding: 0 4px; text-align: center; border-radius: 100%; background: var(--theme2); color: var(--white);"
+                                                class="cart-badge">{{ $cart_count }}</span> </a>
                                         <div class="header__right__dropdown__wrapper">
                                             <div class="header__right__dropdown__inner">
                                                 <div class="single__header__right__dropdown">
@@ -147,7 +150,7 @@
                                             <i class="fas fa-bars"></i>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>

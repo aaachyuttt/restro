@@ -126,8 +126,7 @@
                     </div>
                     <div class="row">
                         <!-- Sidebar for category navigation -->
-                        <aside class="col-md-3 d-none d-md-block sticky-top border p-3 rounded shadow-sm"
-                            style=" z-index: auto; height: 50vh;">
+                        <aside class="col-md-3 d-none d-md-block sticky-top border p-3 rounded shadow-sm">
                             <ul class="nav flex-column ">
                                 @foreach ($categories as $category)
                                     <li class="nav-item">
@@ -167,6 +166,31 @@
                                                         <p class="text-muted mb-0 small">
                                                             {{ Str::limit($product->description, 60, '...') ?? 'No description available.' }}
                                                         </p>
+                                                        <div class="actions">
+                                                            <div class="quantity">
+                                                                <p>Quantity</p>
+
+                                                                <div class="qty-wrapper">
+                                                                    <input wire:model='quantity' type="number"
+                                                                        class="qty-input" step="1" min="1"
+                                                                        max="100" name="quantity" value="1"
+                                                                        title="Qty">
+                                                                    <button wire:click="increaseQty"
+                                                                        class="quantity-plus qty-btn"><i
+                                                                            class="fa-solid fa-plus"></i></button>
+                                                                    <button wire:click="decreaseQty"
+                                                                        class="quantity-minus qty-btn"><i
+                                                                            class="fa-solid fa-minus"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <a wire:click.prevent= 'addToCart({{ $product->id }})'
+                                                                href="#" class="theme-btn"><span
+                                                                    wire:loading.remove
+                                                                    wire:target='addToCart({{ $product->id }})'>Add
+                                                                    to Cart</span> <span wire:loading
+                                                                    wire:target='addToCart({{ $product->id }})'>Adding...</span><i
+                                                                    class="fa-regular fa-cart-shopping bg-transparent text-white"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,6 +204,7 @@
                                 </section>
                             @endforeach
                         </div>
+
                     </div>
 
                 </div>

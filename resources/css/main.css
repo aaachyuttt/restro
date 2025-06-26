@@ -4569,7 +4569,7 @@ input.main-search-input::placeholder {
     position: relative;
 }
 
-.header-main .header-right .header__cart>a::before {
+.cart-badge {
     font-size: 10px;
     font-weight: 500;
     line-height: 15px;
@@ -4579,7 +4579,6 @@ input.main-search-input::placeholder {
     width: 15px;
     height: 15px;
     padding: 0 4px;
-    content: "3";
     text-align: center;
     border-radius: 100%;
     background: var(--theme2);
@@ -4587,7 +4586,7 @@ input.main-search-input::placeholder {
 }
 
 @media (max-width: 991px) {
-    .header-main .header-right .header__cart>a::before {
+    .cart-badge {
         top: 7px;
         right: 11px;
     }
