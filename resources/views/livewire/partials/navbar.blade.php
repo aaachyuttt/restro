@@ -66,6 +66,27 @@
                                 <div class="header-right d-flex justify-content-end align-items-center">
                                     {{-- <a href="#0" class="search-trigger search-icon"><i
                                             class="fal fa-search"></i></a> --}}
+                                    @guest
+                                        <a href="{{ route('login') }}" style="font-weight:bold"
+                                            class="header__cart">Login</a>
+                                    @endguest
+                                    @auth
+                                        <div class="header__cart">
+                                            <a style="font-weight:bold"> {{ auth()->user()->name }}</i>
+                                            </a>
+                                            <div class="header__right__dropdown__wrapper">
+                                                <div class="single__header__right__dropdown">
+                                                    <a href="{{ route('my-orders') }}">My Orders</a>
+                                                </div>
+                                                <div class="single__header__right__dropdown">
+                                                    <a href="{{ route('my-orders') }}">My Account</a>
+                                                </div>
+                                                <div class="single__header__right__dropdown">
+                                                    <a href="{{ route('logout') }}">Logout</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endauth
                                     <div class="header__cart">
                                         <a href="#"> <i class="fa-sharp fa-regular fa-cart-shopping"></i>
                                             <span
@@ -142,6 +163,7 @@
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <a class="theme-btn" href="menu.php">ORDER NOW <i
                                             class="fa-sharp fa-regular fa-arrow-right"></i></a>

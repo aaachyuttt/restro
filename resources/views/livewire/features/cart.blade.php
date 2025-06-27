@@ -95,7 +95,10 @@
                         </tfoot>
                     </table>
                     <div class="wc-proceed-to-checkout mt-3">
-                        <a href="checkout.php" class="theme-btn btn-fw">Proceed to checkout</a>
+                        @if ($cart_items)
+                            <a href="{{ route('menu') }}" class="theme-btn btn-fw">Continue Shopping</a>
+                            <a href="{{ route('checkout') }}" class="theme-btn btn-fw">Proceed to checkout</a>
+                        @endif
                     </div>
                 </div>
             </div>
